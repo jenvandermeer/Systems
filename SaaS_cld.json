@@ -1,33 +1,29 @@
 {
-  "nodes": [
-    {"id": "customers", "label": "Customers"},
-    {"id": "churn", "label": "Customer Churn"},
-    {"id": "arr", "label": "Annual Recurring Revenue (ARR)"},
-    {"id": "sales_marketing", "label": "Sales & Marketing Investment"},
-    {"id": "new_customers", "label": "New Customer Acquisition"},
-    {"id": "product_dev", "label": "Product Development & Improvement"},
-    {"id": "satisfaction", "label": "Customer Satisfaction"},
-    {"id": "support", "label": "Customer Support Quality"},
-    {"id": "valuation", "label": "Valuation"},
-    {"id": "investors", "label": "Investor Funding"}
+  "elements": [
+    {"_id": "customers", "name": "Customers", "type": "node"},
+    {"_id": "churn", "name": "Customer Churn", "type": "node"},
+    {"_id": "arr", "name": "Annual Recurring Revenue (ARR)", "type": "node"},
+    {"_id": "sales_marketing", "name": "Sales & Marketing Investment", "type": "node"},
+    {"_id": "new_customers", "name": "New Customer Acquisition", "type": "node"},
+    {"_id": "product_dev", "name": "Product Development & Improvement", "type": "node"},
+    {"_id": "satisfaction", "name": "Customer Satisfaction", "type": "node"},
+    {"_id": "support", "name": "Customer Support Quality", "type": "node"},
+    {"_id": "valuation", "name": "Valuation", "type": "node"},
+    {"_id": "investors", "name": "Investor Funding", "type": "node"}
   ],
-  "links": [
-    {"source": "customers", "target": "arr", "type": "positive"},
-    {"source": "churn", "target": "customers", "type": "negative"},
-    {"source": "arr", "target": "product_dev", "type": "positive"},
-    {"source": "product_dev", "target": "satisfaction", "type": "positive"},
-    {"source": "satisfaction", "target": "churn", "type": "negative"},
-    {"source": "satisfaction", "target": "customers", "type": "positive"},
-    {"source": "sales_marketing", "target": "new_customers", "type": "positive"},
-    {"source": "new_customers", "target": "customers", "type": "positive"},
-    {"source": "customers", "target": "valuation", "type": "positive"},
-    {"source": "arr", "target": "valuation", "type": "positive"},
-    {"source": "investors", "target": "sales_marketing", "type": "positive"},
-    {"source": "investors", "target": "product_dev", "type": "positive"},
-    {"source": "valuation", "target": "investors", "type": "positive"}
-  ],
-  "loops": [
-    {"nodes": ["customers", "arr", "product_dev", "satisfaction", "churn"], "type": "reinforcing", "label": "Growth Loop"},
-    {"nodes": ["valuation", "investors", "sales_marketing", "new_customers", "customers", "arr"], "type": "reinforcing", "label": "Investment Loop"}
+  "connections": [
+    {"_from": "customers", "_to": "arr", "type": "positive"},
+    {"_from": "churn", "_to": "customers", "type": "negative"},
+    {"_from": "arr", "_to": "product_dev", "type": "positive"},
+    {"_from": "product_dev", "_to": "satisfaction", "type": "positive"},
+    {"_from": "satisfaction", "_to": "churn", "type": "negative"},
+    {"_from": "satisfaction", "_to": "customers", "type": "positive"},
+    {"_from": "sales_marketing", "_to": "new_customers", "type": "positive"},
+    {"_from": "new_customers", "_to": "customers", "type": "positive"},
+    {"_from": "customers", "_to": "valuation", "type": "positive"},
+    {"_from": "arr", "_to": "valuation", "type": "positive"},
+    {"_from": "investors", "_to": "sales_marketing", "type": "positive"},
+    {"_from": "investors", "_to": "product_dev", "type": "positive"},
+    {"_from": "valuation", "_to": "investors", "type": "positive"}
   ]
 }
